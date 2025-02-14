@@ -54,7 +54,7 @@
             { text: "Passer une journée sans sous-vêtements 🩲 ou sans se laver les dents ?", opt1: "Sans sous-vêtements", opt2: "Sans dents propres" }
         ];
 
-        let stats = {};
+        let stats = JSON.parse(localStorage.getItem("tuPreferesStats")) || {};
         let currentIndex = 0;
 
         function loadQuestion() {
@@ -68,6 +68,7 @@
             let q = questions[currentIndex];
             let key = choice === 1 ? q.opt1 : q.opt2;
             stats[key] = (stats[key] || 0) + 1;
+            localStorage.setItem("tuPreferesStats", JSON.stringify(stats));
             currentIndex = (currentIndex + 1) % questions.length;
             loadQuestion();
             updateStats();
@@ -82,6 +83,7 @@
         }
 
         loadQuestion();
+        updateStats();
     </script>
 </body>
 </html>
