@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Pyjama Party de CG2 !</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Animation d'apparition */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Carte d'invitation */
+        .invitation {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Titre animé */
+        .titre {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6a11cb;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-5px); }
+        }
+
+        /* Infos de la fête */
+        .details {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* Bouton RSVP */
+        .rsvp {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #6a11cb;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .rsvp:hover {
+            background: #4a0d9f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation">
+        <h1 class="titre">🌙🎉 Pyjama Party de CG2 ! 🎉🌙</h1>
+        <p class="details">Salut camarade de CG2 ! 💤</p>
+        <p class="details">Viens passer une soirée chill en pyjama avec nous ! 😍🛏️</p>
+        <p class="details"><strong>📅 Date :</strong> Vendredi 21 juin 2024</p>
+        <p class="details"><strong>📍 Lieu :</strong> Chez moi à 20h</p>
+        <p class="details">Films 🎬, snacks 🍕, jeux 🎲 et bonne ambiance garantie ! 🥳</p>
+
+        <a href="mailto:tony536187@gmail.com?subject=RSVP - Pyjama Party CG2&body=Je confirme ma présence pour la Pyjama Party !" class="rsvp">Confirmer ma présence</a>
+    </div>
+
+</body>
+</html>
