@@ -3,85 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Pyjama Party de CG2 !</title>
+    <title>Tu Préfères - Version Hardcore 🔥</title>
     <style>
-        /* Styles généraux */
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            color: white;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        /* Animation d'apparition */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Carte d'invitation */
-        .invitation {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            max-width: 500px;
-            margin: 50px auto;
+            background-color: #111;
+            color: #fff;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
-        /* Titre animé */
-        .titre {
-            font-size: 28px;
-            font-weight: bold;
-            color: #6a11cb;
-            animation: bounce 1.5s infinite alternate;
+        .question-box {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            width: 50%;
         }
-
-        @keyframes bounce {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-5px); }
-        }
-
-        /* Infos de la fête */
-        .details {
-            font-size: 18px;
-            margin: 15px 0;
-        }
-
-        /* Bouton RSVP */
-        .rsvp {
-            display: inline-block;
-            padding: 12px 20px;
-            background: #6a11cb;
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #e63946;
             color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
-
-        .rsvp:hover {
-            background: #4a0d9f;
-            transform: scale(1.1);
+        #results {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-    <div class="invitation">
-        <h1 class="titre">🌙🎉 Pyjama Party de CG2 ! 🎉🌙</h1>
-        <p class="details">Salut camarade de CG2 ! 💤</p>
-        <p class="details">Viens passer une soirée chill en pyjama avec nous ! 😍🛏️</p>
-        <p class="details"><strong>📅 Date :</strong> Vendredi 21 juin 2024</p>
-        <p class="details"><strong>📍 Lieu :</strong> Chez moi à 20h</p>
-        <p class="details">Films 🎬, snacks 🍕, jeux 🎲 et bonne ambiance garantie ! 🥳</p>
-
-        <a href="mailto:tony536187@gmail.com?subject=RSVP - Pyjama Party CG2&body=Je confirme ma présence pour la Pyjama Party !" class="rsvp">Confirmer ma présence</a>
+    <h1>🔥 Tu Préfères ? - Version Extrême 🔥</h1>
+    <div class="question-box">
+        <p id="question">Chargement...</p>
+        <button onclick="chooseOption(1)" id="option1">Option 1</button>
+        <button onclick="chooseOption(2)" id="option2">Option 2</button>
     </div>
+    <h2>Statistiques des Choix</h2>
+    <div id="results">Aucun choix pour l'instant.</div>
+    
+    <script>
+        let questions = [
+            { text: "Boire un shot de sauce piquante 🌶️ ou manger une cuillère de sel ?", opt1: "Sauce piquante", opt2: "Cuillère de sel" },
+            { text: "Ne plus jamais pouvoir embrasser 💋 ou ne plus jamais pouvoir faire l'amour ?", opt1: "Plus d'embrassades", opt2: "Plus de sexe" },
+            { text: "Dormir avec un serpent 🐍 ou avec 100 cafards ?", opt1: "Serpent", opt2: "Cafards" },
+            { text: "Avaler un œuf cru 🥚 ou croquer dans un oignon entier ?", opt1: "Œuf cru", opt2: "Oignon entier" },
+            { text: "Lécher une barre de métro 🚇 ou partager une brosse à dents avec un inconnu ?", opt1: "Barre de métro", opt2: "Brosse à dents" },
+            { text: "Passer une journée sans sous-vêtements 🩲 ou sans se laver les dents ?", opt1: "Sans sous-vêtements", opt2: "Sans dents propres" }
+        ];
 
+        let stats = {};
+        let currentIndex = 0;
+
+        function loadQuestion() {
+            let q = questions[currentIndex];
+            document.getElementById("question").innerText = q.text;
+            document.getElementById("option1").innerText = q.opt1;
+            document.getElementById("option2").innerText = q.opt2;
+        }
+
+        function chooseOption(choice) {
+            let q = questions[currentIndex];
+            let key = choice === 1 ? q.opt1 : q.opt2;
+            stats[key] = (stats[key] || 0) + 1;
+            currentIndex = (currentIndex + 1) % questions.length;
+            loadQuestion();
+            updateStats();
+        }
+
+        function updateStats() {
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+            for (let option in stats) {
+                resultsDiv.innerHTML += `<p>${option}: ${stats[option]} votes</p>`;
+            }
+        }
+
+        loadQuestion();
+    </script>
 </body>
 </html>
